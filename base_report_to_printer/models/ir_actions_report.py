@@ -112,6 +112,7 @@ class IrActionsReport(models.Model):
                 _('No printer configured to print this report.')
             )
         # TODO should we use doc_format instead of report_type
+        import pdb;pdb.set_trace()
         return printer.print_document(self, document,
                                       doc_format=self.report_type,
                                       **behaviour)

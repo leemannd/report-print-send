@@ -36,6 +36,7 @@ class PrintingServer(models.Model):
     def _open_connection(self, raise_on_error=False):
         self.ensure_one()
         connection = False
+        import pdb;pdb.set_trace()
         try:
             connection = cups.Connection(host=self.address, port=self.port)
         except:
@@ -142,7 +143,7 @@ class PrintingServer(models.Model):
                     'time-at-processing',
                     'time-at-completed',
                 ])
-
+            import pdb;pdb.set_trace()
             # Retrieve known uncompleted jobs data to update them
             if which == 'not-completed':
                 oldest_uncompleted_job = job_obj.search([

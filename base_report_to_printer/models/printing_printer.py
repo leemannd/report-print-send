@@ -124,11 +124,13 @@ class PrintingPrinter(models.Model):
         """
         self.ensure_one()
         fd, file_name = mkstemp()
+        import pdb;pdb.set_trace()
         try:
             os.write(fd, content)
         finally:
             os.close(fd)
-
+        print('FILENAME', file_name)
+        import pdb;pdb.set_trace()
         return self.print_file(
             file_name, report=report, **print_opts)
 

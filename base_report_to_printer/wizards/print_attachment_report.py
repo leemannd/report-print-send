@@ -24,6 +24,7 @@ class PrintAttachment(models.TransientModel):
         self.ensure_one()
         errors = []
         for att_line in self.attachment_line_ids:
+            # import pdb;pdb.set_trace()
             data = att_line.attachment_id.datas
             if not data:
                 errors.append(att_line)
